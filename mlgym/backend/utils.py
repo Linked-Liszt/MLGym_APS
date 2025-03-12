@@ -14,6 +14,7 @@ from mlgym.backend.debugging import ReplayModel, SubmitBaselineModel
 from mlgym.backend.human import HumanModel, HumanThoughtModel
 from mlgym.backend.litellm import LiteLLMModel
 from mlgym.tools.commands import Command
+from mlgym.backend.argo_model import ArgoModel
 
 
 # ! TODO: Add a meta model class so that we can register custom model classes on the fly.
@@ -33,6 +34,8 @@ def get_model(args: ModelArguments, commands: list[Command] | None = None):
         return ReplayModel(args)
     elif args.model_name.startswith("litellm"):
         return LiteLLMModel(args)
+    elif args.model_name.startswith("argo"):
+        return ArgoModel(args)
     else:
         msg = f"Invalid model name: {args.model_name}. Please see models.py for valid model names or for adding a new model."
         raise ValueError(msg)

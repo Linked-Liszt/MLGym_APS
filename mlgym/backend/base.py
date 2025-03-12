@@ -167,6 +167,10 @@ class BaseModel:
             self.api_model = args.model_name.split("avior:", 1)[1]
             self.model_metadata = MODELS.get(self.api_model)
             self.model_provider = "avior"
+        elif args.model_name.startswith("argo:"):
+            self.api_model = args.model_name.split("argo:", 1)[1]
+            self.model_metadata = MODELS.get(self.api_model, {})
+            self.model_provider = "argo"
         else:
             msg = f"Unregistered model ({args.model_name}). Add model name to MODELS metadata to {self.__class__}"
             raise ValueError(msg)

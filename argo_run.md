@@ -1,7 +1,7 @@
 ```bash
 python run.py \
   --container_type docker \
-  --task_config_path tasks/battleOfSexes.yaml \
+  --task_config_path tasks/rlMountainCarContinuous.yaml \
   --model argo:gpt-4o \
   --per_instance_cost_limit 4.00 \
   --agent_config_path configs/agents/default.yaml \

@@ -42,7 +42,7 @@ class ArgoModel(BaseModel):
         self.model_provider = "Argo"
         
         # Set up API endpoint
-        self.api_endpoint = "https://apps.inside.anl.gov/argoapi/api/v1/resource/chat/"
+        self.api_endpoint = "https://apps-dev.inside.anl.gov/argoapi/api/v1/resource/chat/"
         
         # Set up API key
         self.api_key = args.api_key or os.getenv("ARGO_API_KEY")
@@ -93,6 +93,11 @@ class ArgoModel(BaseModel):
         # Count input tokens
         input_text = json.dumps(history)
         input_tokens = self._count_tokens(input_text)
+
+        if self.api_model == 'gpto1preview':
+            for message in payload['messages']:
+                if message['role'] == 'system':
+                    message['role'] = 'user'
         
         
         # Make API call
@@ -101,6 +106,7 @@ class ArgoModel(BaseModel):
             self.api_endpoint, 
             json=payload,
         )
+
         
         if response.status_code != 200:
             self.logger.error(f"Error from Argo API: {response.status_code} {response.text}")

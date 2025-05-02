@@ -163,7 +163,7 @@ cython_debug/
 .idea/
 
 
-data/**/data
+#data/**/data
 data/**/results
 models/
 workspace/
@@ -172,6 +172,7 @@ workspace/
 
 # Trajectories - ignore everything except mlgym_bench_v0
 trajectories/*
+!trajectories/aileenluo/
 !trajectories/mlgym_bench_v0/
 trajectories/**/*.log
 trajectories/**/*.pdf

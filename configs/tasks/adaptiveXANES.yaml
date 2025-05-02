@@ -1,0 +1,32 @@
+id: adaptiveXANES
+name: Adaptive Sampling for a XANES Experiment
+description: |-
+  The goal of this task is to develop an algorithm to sparsely acquire an X-ray absorption 
+  near-edge spectroscopy scan. This task uses the following datasets:
+  {dataset_docs}
+
+  If a baseline is given, your task is to write a new algorithm that improves performance on the 
+  given dataset as much as possible by lowering the RMS error between the original and sparse data
+  while maintaining a sampling fraction of 0.1. If you fail to produce a valid submission artefact 
+  evaluation file will give you a score of +infinity.
+
+  SUBMISSION FORMAT:
+  For this task, your code should save the sparse energies and absorption values to a file named 
+  `submission.csv`.
+dataset_configs:
+- datasets/XANES.yaml
+task_entrypoint: CSVSubmissionTasks
+training_timeout: 1800
+use_generic_conda: true
+starter_code:
+- data/adaptiveXANES/baseline.py
+- data/adaptiveXANES/evaluate.py
+- data/adaptiveXANES/sample_submission.csv
+baseline_paths:
+- baseline.py
+baseline_scores:
+- rmse: 0.2877
+evaluation_paths:
+- evaluate.py
+evaluation_read_only: true
+memory_path: data/adaptiveXANES/memory.json

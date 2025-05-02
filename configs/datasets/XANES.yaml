@@ -1,0 +1,15 @@
+name: XANES
+description: |- 
+  The X-ray absorption near-edge spectroscopy (XANES) dataset consists of measured X-ray absorption 
+  values at 223 photon energies on the material LiTiO3. This intensity data already has background 
+  correction (I = I_0 / I_ref); however, the X-ray cross section and edge height are not normalized 
+  in the measured data.
+
+  DATA FIELDS:
+  energy: The photon energies at which X-ray absorption measurements were acquired. The dictionary
+  column object is accessed by dataset["Energy_eV"].
+  absorption: The corresponding X-ray absorption measurements to the energies. The dictionary column 
+  object is accessed by dataset["Absorption"].
+
+is_local: true 
+data_path: data/adaptiveXANES/data/xanes_spectrum.csv

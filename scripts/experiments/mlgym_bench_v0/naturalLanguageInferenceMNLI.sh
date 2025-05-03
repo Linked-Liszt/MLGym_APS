@@ -17,7 +17,7 @@ for model in "${MODELS[@]}"; do
 
     python run.py \
         --container_type docker \
-        --task_config_path tasks/rlMountainCarContinuousReinforce.yaml \
+        --task_config_path tasks/naturalLanguageInferenceMNLI.yaml \
         --model "$model" \
         --per_instance_cost_limit 4.00 \
         --agent_config_path configs/agents/default.yaml \

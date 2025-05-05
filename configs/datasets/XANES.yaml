@@ -12,4 +12,4 @@ description: |-
   object is accessed by dataset["Absorption"].
 
 is_local: true 
-data_path: data/adaptiveXANES/data/xanes_spectrum.csv
+data_path: data/adaptiveXANES/data
